@@ -1,0 +1,79 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36" version="26.0.16">
+  <diagram name="第 1 页" id="4VJJqoYCKp3lYMonkxZw">
+    <mxGraphModel dx="889" dy="1744" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="HAg0UM9NpMbZSw5hfN5h-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="CM4hn86EEaYbXdK9A_Va-1" target="HAg0UM9NpMbZSw5hfN5h-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CM4hn86EEaYbXdK9A_Va-1" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); color: rgb(8, 8, 8);&quot;&gt;&lt;pre style=&quot;font-family:&#39;JetBrains Mono&#39;,monospace;font-size:9.8pt;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;BillSummaryStrategy&lt;br/&gt;票据汇总策略 -&amp;gt; 接口&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="304.5" y="340" width="230" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="HAg0UM9NpMbZSw5hfN5h-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="HAg0UM9NpMbZSw5hfN5h-1" target="HAg0UM9NpMbZSw5hfN5h-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HAg0UM9NpMbZSw5hfN5h-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="HAg0UM9NpMbZSw5hfN5h-1" target="HAg0UM9NpMbZSw5hfN5h-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HAg0UM9NpMbZSw5hfN5h-1" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); color: rgb(8, 8, 8);&quot;&gt;&lt;pre style=&quot;font-family:&#39;JetBrains Mono&#39;,monospace;font-size:9.8pt;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;AbstractBillSummaryStrategy&lt;br/&gt;抽象类&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="291.5" y="440" width="256" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="HAg0UM9NpMbZSw5hfN5h-3" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); color: rgb(8, 8, 8);&quot;&gt;&lt;pre style=&quot;font-family:&#39;JetBrains Mono&#39;,monospace;font-size:9.8pt;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;WebBillSummaryStrategy&lt;br/&gt;响应页面&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="184.5" y="565" width="201" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="HAg0UM9NpMbZSw5hfN5h-5" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); color: rgb(8, 8, 8);&quot;&gt;&lt;pre style=&quot;font-family:&#39;JetBrains Mono&#39;,monospace;font-size:9.8pt;&quot;&gt;&lt;div&gt;&lt;pre style=&quot;font-family:&#39;JetBrains Mono&#39;,monospace;font-size:9.8pt;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;ExportBillSummaryStrategy&lt;br/&gt;用于导出Excel&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="455.5" y="565" width="210" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="HAg0UM9NpMbZSw5hfN5h-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="HAg0UM9NpMbZSw5hfN5h-7" target="HAg0UM9NpMbZSw5hfN5h-8" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HAg0UM9NpMbZSw5hfN5h-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="HAg0UM9NpMbZSw5hfN5h-7" target="HAg0UM9NpMbZSw5hfN5h-9" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HAg0UM9NpMbZSw5hfN5h-7" value="web 获取数据" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="365" y="-140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="HAg0UM9NpMbZSw5hfN5h-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="HAg0UM9NpMbZSw5hfN5h-8" target="HAg0UM9NpMbZSw5hfN5h-10" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HAg0UM9NpMbZSw5hfN5h-8" value="应付数据" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="273.5" y="-30" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="HAg0UM9NpMbZSw5hfN5h-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="HAg0UM9NpMbZSw5hfN5h-9" target="HAg0UM9NpMbZSw5hfN5h-10" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HAg0UM9NpMbZSw5hfN5h-9" value="应收数据" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="452.5" y="-30" width="124" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="HAg0UM9NpMbZSw5hfN5h-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="HAg0UM9NpMbZSw5hfN5h-10" target="HAg0UM9NpMbZSw5hfN5h-17" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HAg0UM9NpMbZSw5hfN5h-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="HAg0UM9NpMbZSw5hfN5h-10" target="HAg0UM9NpMbZSw5hfN5h-18" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HAg0UM9NpMbZSw5hfN5h-10" value="数据处理" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="367.5" y="70" width="112.5" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HAg0UM9NpMbZSw5hfN5h-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="HAg0UM9NpMbZSw5hfN5h-17" target="HAg0UM9NpMbZSw5hfN5h-19" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HAg0UM9NpMbZSw5hfN5h-17" value="应付数据处理策略" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="249.75" y="160" width="119" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HAg0UM9NpMbZSw5hfN5h-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="HAg0UM9NpMbZSw5hfN5h-18" target="HAg0UM9NpMbZSw5hfN5h-19" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HAg0UM9NpMbZSw5hfN5h-18" value="应收数据处理策略" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="481.25" y="160" width="119" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HAg0UM9NpMbZSw5hfN5h-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="HAg0UM9NpMbZSw5hfN5h-19" target="CM4hn86EEaYbXdK9A_Va-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HAg0UM9NpMbZSw5hfN5h-19" value="通用处理数据" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="363.25" y="260" width="112.5" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
