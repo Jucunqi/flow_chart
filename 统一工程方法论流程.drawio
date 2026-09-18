@@ -1,0 +1,859 @@
+<mxfile host="app.diagrams.net" pages="5">
+  <diagram name="1 主流程：需求到完成" id="0">
+    <mxGraphModel dx="2173" dy="1463" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="2720" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="A1" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;" value="开始&#xa;收到变更请求 / 新需求 / 缺陷" vertex="1">
+          <mxGeometry height="60" width="370" x="480" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="A2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=left;spacingLeft=12;spacingRight=8;verticalAlign=middle;" value="① 理解现状（第 1、6、7 节）&#xa;⚠ 不得假设「现有实现 = 预期业务行为」&#xa;既有代码可能同时包含：有意行为、历史约束、兼容要求、技术债、意外行为、过时行为&#xa;有意或必需的行为要保留；不要仅因意外行为已存在就保留它&#xa;建立上下文：解决什么问题 · 为何重要 · 影响谁 · 当前行为 · 期望行为 · 约束 · 依赖 · 明确的非范围&#xa;改变既有行为前，先识别受影响的依赖、契约、数据、测试与消费方" vertex="1">
+          <mxGeometry height="170" width="370" x="480" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="A3" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;align=center;verticalAlign=middle;" value="是缺陷（Bug）吗？&#xa;（第 16 节）" vertex="1">
+          <mxGeometry height="100" width="370" x="480" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="A4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=left;spacingLeft=12;spacingRight=8;verticalAlign=middle;" value="② 复杂度与风险分级（第 15 节）&#xa;Trivial · Small · Medium · Large / 架构级&#xa;从最低适用等级开始；命中更高等级条件即上调；不确定时采用更高等级&#xa;⚠ 不把大型工作流强加到极小工作；风险需要深入调研时也不用轻量工作流" vertex="1">
+          <mxGeometry height="130" width="370" x="480" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="A5" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;align=center;verticalAlign=middle;" value="需要走需求澄清门禁吗？&#xa;新需求 / 需求变更（第 7 节）" vertex="1">
+          <mxGeometry height="100" width="370" x="480" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="A6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;align=left;spacingLeft=12;spacingRight=8;verticalAlign=middle;" value="③ grill-with-docs 需求澄清门禁（第 7 节）&#xa;新需求 / 需求变更的默认门禁，先行执行&#xa;产出先写入持久项目知识与 Trellis，再进入 Trellis 任务流&#xa;⚠ 不得把它当作第二套规格体系" vertex="1">
+          <mxGeometry height="120" width="370" x="480" y="970" as="geometry" />
+        </mxCell>
+        <mxCell id="A7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=left;spacingLeft=12;spacingRight=8;verticalAlign=middle;" value="④ 调研、证据与结论回写 Trellis（第 5、8 节）&#xa;证据优先于直觉。陈述分级：FACT 事实 · INFERENCE 推断 · ASSUMPTION 假设 · UNKNOWN 未知&#xa;证据来源：源码 · 测试 · 配置 · 数据库结构 · API 契约 · 事件消息 · 文档 · Git 历史 · 部署配置 · 可观测数据&#xa;回写：影响范围/验收标准/优先级/计划/任务/依赖/风险/验证策略/完成条件的结论；阻塞性未决问题；选定方案与理由；证据链接&#xa;可复用知识 → 持久文档；重大决策 → ADR。原始结果与一次性笔记仅作链接材料，不得复制为权威文档&#xa;领域概念复杂或歧义时先用 domain-modeling 建立共享词汇（实体、值对象、聚合、状态迁移、不变量、业务规则、术语、边界）&#xa;⚠ 无证据支撑的陈述只能记为推断或假设，不得记为事实" vertex="1">
+          <mxGeometry height="200" width="370" x="480" y="1140" as="geometry" />
+        </mxCell>
+        <mxCell id="A8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=left;spacingLeft=12;spacingRight=8;verticalAlign=middle;" value="⑤ 规格与规划（第 9 节 · Trellis 拥有这两个阶段）&#xa;· 业务目标 · 受影响用户或系统 · 范围 · 明确非目标&#xa;· 正常场景下可观测、可测试的验收行为&#xa;· 错误 / 边界 / 权限 / 并发 / 重复请求 / 超时 / 依赖失败 行为&#xa;· 受影响数据 · 状态迁移 · 不变量 · 保留与删除规则&#xa;· API / 事件 / UI / 批处理等外部契约（含错误与版本）&#xa;· 非功能需求：性能 · 容量 · 可用性 · 可观测性 · 安全 · 隐私 · 可达性&#xa;· 兼容影响 · 受影响消费方 · 迁移 / 灰度 / 开关 / 回滚策略&#xa;· 验收 → 验证 映射：每条验收标准至少一种验证方法与预期证据&#xa;· 未决决策：负责人 · 目标解决时间 · 阻塞状态&#xa;⚠ 无法验证的表述（如「体验更好」「快」）不能作为完成标准&#xa;⚠ Trellis 已有相应能力时不自动调用 to-spec / to-tickets；不维护两套竞争性规格" vertex="1">
+          <mxGeometry height="260" width="370" x="480" y="1390" as="geometry" />
+        </mxCell>
+        <mxCell id="A9" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=left;spacingLeft=26;spacingRight=14;verticalAlign=middle;" value="⑥ 人工审批门禁（第 4 节）&#xa;需求目标 / 范围 / 优先级 / 验收标准 → 产品或业务负责人&#xa;重大架构 / API / 数据 / 安全决策 → 技术或架构负责人（ADR）&#xa;未决业务规则 / 例外 / 取舍 → 指定业务或领域负责人&#xa;⚠ 工具与 Agent 可调研、起草、实现、验证、汇总证据，但不拥有业务、风险、架构或生产决策的最终权限&#xa;⚠ 高风险变更不得仅由实现者自批；授权代批须在 Trellis 记录代批人、范围与确认时间&#xa;⚠ 无明确人工确认时，变更即为未批准、未接受、未就绪发布" vertex="1">
+          <mxGeometry height="200" width="370" x="480" y="1700" as="geometry" />
+        </mxCell>
+        <mxCell id="B0" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;" value="结束&#xa;状态 ⑥ 完成 · 可追溯链闭合" vertex="1">
+          <mxGeometry height="70" width="380" x="1360" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="B1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=left;spacingLeft=12;spacingRight=8;verticalAlign=middle;" value="⑪ 完成判定（第 18 节）— 以下 8 项须全部满足&#xa;1  预期行为已实现&#xa;2  实现满足 Trellis 规格&#xa;3  适当的验证已通过&#xa;4  相关项目规则已满足&#xa;5  重要架构决策已记录&#xa;6  相关持久知识已更新&#xa;7  无未决问题阻塞验收、发布、安全、合规或数据完整性；每个剩余非阻塞问题都有负责人、到期日与关联 Trellis 项&#xa;8  Trellis 任务 / 工作流准确反映最终状态" vertex="1">
+          <mxGeometry height="210" width="380" x="1360" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="B2" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=left;spacingLeft=26;spacingRight=14;verticalAlign=middle;" value="⑩ 人工验收与发布门禁（第 4 节）&#xa;最终完成与验收 → Trellis 任务负责人；需业务验收时 → 业务负责人&#xa;生产发布 / 灰度 / 回滚 / 上线 → 发布或服务负责人（审批 + 运营检查 + 回滚条件）&#xa;风险接受 / 验证例外 / 残余风险 → 变更负责人；高风险变更另设风险负责人&#xa;须业务验收的情形：用户可见业务行为、业务规则、受监管结果、定价、承诺或面向客户的流程发生变更&#xa;每项已批准例外须记录：范围 · 理由 · 残余风险 · 批准人 · 到期或复评日期 · 补偿证据 · 后续 Trellis 项" vertex="1">
+          <mxGeometry height="210" width="380" x="1360" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="B3" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;align=center;verticalAlign=middle;" value="评审发现已解决&#xa;或被明确接受？" vertex="1">
+          <mxGeometry height="90" width="380" x="1360" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="B4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=left;spacingLeft=12;spacingRight=8;verticalAlign=middle;" value="⑨ 代码评审（第 12 节）&#xa;Small / Medium / Large 变更完成前必须评审；Trivial 可不经独立评审（例外走第 4 节）&#xa;评审基准：① 预期需求 ② Trellis 规格 ③ 实现计划 ④ 既有架构约束 ⑤ 测试与验证 ⑥ 向后兼容 ⑦ 可维护性与运营风险&#xa;⚠ 代码能编译、测试能通过 ≠ 变更正确；还须满足预期行为与项目约束" vertex="1">
+          <mxGeometry height="160" width="380" x="1360" y="1100" as="geometry" />
+        </mxCell>
+        <mxCell id="B5" parent="1" style="rounded=1;arcSize=18;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;align=left;spacingLeft=12;spacingRight=8;verticalAlign=middle;" value="Trellis 状态出口检查（第 2 节）&#xa;③ 实现：计划内工作已完成，或任何实质性偏差已按第 17 节处置&#xa;④ 验证：适用的验证已通过，或已批准的例外与残余风险已记录" vertex="1">
+          <mxGeometry height="110" width="380" x="1360" y="1310" as="geometry" />
+        </mxCell>
+        <mxCell id="B6" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;align=center;verticalAlign=middle;" value="验证通过？" vertex="1">
+          <mxGeometry height="80" width="380" x="1360" y="1470" as="geometry" />
+        </mxCell>
+        <mxCell id="B7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=left;spacingLeft=12;spacingRight=8;verticalAlign=middle;" value="⑧ 测试与验证（第 11 节）&#xa;按变更引入或影响的风险选择验证；多项风险叠加时合并全部适用的最小验证要求&#xa;⚠ 未做适当验证，绝不得声称完成&#xa;中 / 大型工作：风险→验证映射在规格阶段定义，实现阶段补齐执行证据；不得把验证选择推迟到收尾&#xa;自动化不可用时：手工验证须记录可重复步骤、测试数据、预期结果、实际结果与执行人&#xa;验证结果必须反映到 Trellis 工作流中；可用 tdd 等能力实质改进实现过程" vertex="1">
+          <mxGeometry height="180" width="380" x="1360" y="1600" as="geometry" />
+        </mxCell>
+        <mxCell id="B8" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;align=center;verticalAlign=middle;" value="出现重大方向变更？&#xa;（第 17 节）" vertex="1">
+          <mxGeometry height="100" width="380" x="1360" y="1830" as="geometry" />
+        </mxCell>
+        <mxCell id="B9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=left;spacingLeft=12;spacingRight=8;verticalAlign=middle;" value="⑦ 实现（第 10 节）&#xa;改码前：识别受影响组件 · 理解现有模式 · 识别依赖与契约 · 识别相关测试 · 考虑向后兼容 · 识别迁移与灰度事项&#xa;取满足规格的最小安全变更&#xa;⚠ 不引入无关重构，仅因周边代码本可改进" vertex="1">
+          <mxGeometry height="140" width="380" x="1360" y="1980" as="geometry" />
+        </mxCell>
+        <mxCell id="LB_BUG" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;align=left;spacingLeft=12;spacingRight=8;verticalAlign=middle;" value="缺陷调研路径（第 16 节）&#xa;diagnosing-bugs → 证据 → 复现 → 根因 → Trellis 变更定义&#xa;⚠ 根因未达足够可信前，不得实现凭猜测的修复&#xa;详见第 4 页「缺陷处理双路径」" vertex="1">
+          <mxGeometry height="130" width="340" x="40" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="LB_LIGHT" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" value="轻量例外（第 7 节）— 须同时满足全部条件：&#xa;· 需求与验收结果完整且无歧义&#xa;· 变更限于单一组件 / 模块 / 服务&#xa;· 不影响公共 API、数据模型、表结构、事件、鉴权、安全、隐私、合规或兼容性&#xa;· 无需调研历史决策、外部文档或跨团队依赖&#xa;· 既有本地测试模式与聚焦验证足以证明正确性&#xa;→ 实现前先在 Trellis 记录：需求、验收标准、例外决定、验证计划&#xa;任一条件不满足或无法确认 → 走 grill-with-docs&#xa;&#xa;仅修正拼写、格式、注释等非行为细节的变更不属于新需求；已批准规格内明确的实现缺口或回归不构成新需求，但仍须走适用的缺陷修复或实现工作流。" vertex="1">
+          <mxGeometry height="250" width="340" x="40" y="930" as="geometry" />
+        </mxCell>
+        <mxCell id="MB_TRACE" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" value="可追溯链（第 14 节）&#xa;需求 → 上下文/证据 → Trellis 规格 → Trellis 计划/任务 → 实现 → 测试 → 验证 → 评审&#xa;&#xa;工件的确切结构可因项目而异，但意图与实现之间的关系必须保持清晰。每个重要实现决策都应可回溯到明确的需求、约束或架构决策。&#xa;&#xa;第 13 节：实质影响系统边界、服务边界、API、数据模型、事件、持久化、安全、可扩展性、可靠性、部署或向后兼容的决策，须记录到 ADR 等持久工件；不要把重要架构决策埋在对话历史里。" vertex="1">
+          <mxGeometry height="250" width="420" x="1800" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="MB_GEN" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" value="通用决策规则（第 19 节）&#xa;每一步都问：达成足够的正确性、清晰度、可追溯性与信心，所需的最小流程量是多少？&#xa;&#xa;优先：证据 &gt; 假设 ｜ 理解 &gt; 猜测 ｜ 单一事实源 &gt; 重复工件&#xa;小的安全变更 &gt; 不必要的重写 ｜ 显式决策 &gt; 隐式假设&#xa;适当验证 &gt; 乐观声明 ｜ 持久知识 &gt; 仅存于对话的记忆&#xa;&#xa;目标不是流程合规，而是可靠的工程。" vertex="1">
+          <mxGeometry height="190" width="420" x="1800" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="MB_VERIFY" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" value="风险 → 最小验证 基线（第 11 节）&#xa;· 本地可逆、无外部影响 → 聚焦行为检查（相关测试或人工验证）&#xa;· 核心业务规则 / 复杂分支 → 覆盖正常、边界、失败行为的单元测试&#xa;· API / 事件 / 公共 SDK 等外部契约 → 契约与兼容验证 + 相关集成测试&#xa;· 表结构 / 数据迁移 / 保留 / 删除 → 迁移演练 + 数据完整性检查 + 回滚验证&#xa;· 鉴权 / 认证 / 安全 / 隐私 / 合规 → 正反向授权测试 + 安全评审 + 敏感数据与审计验证&#xa;· 跨服务 / 三方 / 异步 / 消息依赖 → 超时、重试、幂等、失败恢复的集成测试&#xa;· 性能 / 容量 / 高成本执行路径 → 基准或压测对比明确阈值或预算&#xa;· 关键用户旅程 / 复杂交互 → 端到端测试或书面人工验收&#xa;· UI / 可达性 / 国际化 → 键盘、焦点、可访问名、长文本、RTL 检查&#xa;· 部署 / 配置 / 基础设施 / 可用性 → 发布健康验证 + 监控告警 + 回滚验证&#xa;&#xa;Trellis 中须留存对应证据；未执行某项适用基线检查时，按第 4 节记录已批准例外与替代证据。" vertex="1">
+          <mxGeometry height="340" width="420" x="1800" y="1120" as="geometry" />
+        </mxCell>
+        <mxCell id="MB_MAT" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=left;spacingLeft=12;spacingRight=8;verticalAlign=middle;" value="重大变更处置（第 17 节）&#xa;1. 停止&#xa;2. 说明发生了什么变化&#xa;3. 更新相关 Trellis 工件&#xa;4. 更新 ADR / 契约 / 其他持久记录&#xa;5. 重评受影响的决策、计划、任务与验证&#xa;6. 仅在新方向明确后才继续&#xa;&#xa;重大变更判据：业务目标 / 范围 / 非目标 / 验收标准 · API / 事件 / 数据模型 / 鉴权 / 安全 / 隐私 / 合规行为 · 兼容性 / 受影响消费方 / 迁移 / 灰度 / 回滚策略 · 依赖 / 归属 / 任务计划 / 交付承诺 / 发布时点 · 已批准的架构或领域方案 · 非功能需求或已接受的运营/可靠性/性能风险&#xa;&#xa;实现中出现的局部技术细节，若不改变已批准的范围、验收标准、外部契约、风险等级或交付承诺，可直接决定并记入实现记录，无需中断工作。&#xa;&#xa;⚠ 不确定是否重大时，先按重大处理，直到影响被评估&#xa;⚠ 不得静默继续执行已过期的计划" vertex="1">
+          <mxGeometry height="300" width="420" x="1800" y="1980" as="geometry" />
+        </mxCell>
+        <mxCell id="t1" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#1a1a1a;" value="统一工程方法论 · 主流程（Engineering Operating Principles）" vertex="1">
+          <mxGeometry height="30" width="1100" x="40" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="t1n" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" value="阅读方向：左列自上而下 → 底部转入右列自下而上。正文括号内为原文对应章节。&#xa;核心原则（第 1 节）：改动前先理解；采用最轻但足以保证正确性、清晰度、可追溯性与可验证性的流程。既不对琐碎变更过度设计，也不对有意义、复杂、含糊或高风险的变更走捷径。&#xa;目标不是机械地遵循流程，而是产出正确、可理解、可验证、可追溯、可维护的软件。" vertex="1">
+          <mxGeometry height="80" width="1700" x="40" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="A1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="A2" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="A2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="A3" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="A3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.4;entryDx=0;entryDy=0;" target="LB_BUG" value="是">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="LB_BUG" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="A4" value="根因可信，已形成 Trellis 变更定义">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="210" y="705" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="A3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="A4" value="否">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="A4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="A5" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="A5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.28;entryDx=0;entryDy=0;" target="LB_LIGHT" value="否：满足全部轻量例外">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="420" y="870" />
+              <mxPoint x="420" y="1000" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="LB_LIGHT" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="A7" value="已在 Trellis 记录例外决定与验证计划">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="210" y="1240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="A5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="A6" value="是">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="A6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="A7" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="A7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="A8" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" edge="1" parent="1" source="A8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="A9" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" edge="1" parent="1" source="A9" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#b85450;fontColor=#b85450;dashed=1;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="A8" value="未获批准 / 需补充规格">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="430" y="1800" />
+              <mxPoint x="430" y="1585" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e16" edge="1" parent="1" source="A9" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=11;endArrow=block;endFill=1;strokeColor=#d79b00;strokeWidth=2.5;labelBackgroundColor=#ffffff;fontStyle=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="B9" value="获批，进入交付">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="665" y="2160" />
+              <mxPoint x="1550" y="2160" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e17" edge="1" parent="1" source="B9" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="B8" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e18" edge="1" parent="1" source="B8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.23;entryDx=0;entryDy=0;" target="MB_MAT" value="是：影响范围 / 契约 / 承诺 / 架构">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1770" y="1880" />
+              <mxPoint x="1770" y="2050" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e19" edge="1" parent="1" source="MB_MAT" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#b85450;fontColor=#b85450;dashed=1;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" target="A8" value="更新工件后重评规格、计划与验证">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2010" y="2340" />
+              <mxPoint x="250" y="2340" />
+              <mxPoint x="250" y="1455" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e20" edge="1" parent="1" source="B8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="B7" value="否：局部技术细节，记入实现记录后继续">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e21" edge="1" parent="1" source="B7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=open;endFill=0;dashed=1;strokeColor=#999999;fontColor=#666666;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.38;entryDx=0;entryDy=0;" target="MB_VERIFY" value="按风险触发项选取">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e22" edge="1" parent="1" source="B7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="B6" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e23" edge="1" parent="1" source="B6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#b85450;fontColor=#b85450;dashed=1;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" target="B9" value="否：回退到最早可解决问题的状态（第 2 节）">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1240" y="1510" />
+              <mxPoint x="1240" y="2015" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e24" edge="1" parent="1" source="B6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="B5" value="是">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e25" edge="1" parent="1" source="B5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="B4" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e26" edge="1" parent="1" source="B4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="B3" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e27" edge="1" parent="1" source="B3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#b85450;fontColor=#b85450;dashed=1;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="B9" value="否：修复后重新验证与评审">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1190" y="1005" />
+              <mxPoint x="1190" y="2085" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e28" edge="1" parent="1" source="B3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="B2" value="是：已解决或由问责负责人明确接受">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e29" edge="1" parent="1" source="B2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="B1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e30" edge="1" parent="1" source="B1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=11;endArrow=block;endFill=1;strokeColor=#d79b00;strokeWidth=2.5;labelBackgroundColor=#ffffff;fontStyle=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="B0" value="8 项标准全部满足 + 人工验收">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e31" edge="1" parent="1" source="MB_TRACE" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=open;endFill=0;dashed=1;strokeColor=#999999;fontColor=#666666;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="B0" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1760" y="285" />
+              <mxPoint x="1760" y="355" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lg" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontSize=11;fontStyle=1;align=left;spacingLeft=10;spacingTop=4;verticalAlign=top;container=1;collapsible=0;pointerEvents=0;" value="图例" vertex="1">
+          <mxGeometry height="188" width="380" x="40" y="2420" as="geometry" />
+        </mxCell>
+        <mxCell id="lgsw0" parent="lg" style="rounded=0;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="" vertex="1">
+          <mxGeometry height="14" width="26" x="12" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="lgtx0" parent="lg" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;" value="起点 / 终点" vertex="1">
+          <mxGeometry height="18" width="330" x="46" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lgsw1" parent="lg" style="rounded=0;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="" vertex="1">
+          <mxGeometry height="14" width="26" x="12" y="54" as="geometry" />
+        </mxCell>
+        <mxCell id="lgtx1" parent="lg" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;" value="处理步骤（正文标注对应章节）" vertex="1">
+          <mxGeometry height="18" width="330" x="46" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="lgsw2" parent="lg" style="rounded=0;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="" vertex="1">
+          <mxGeometry height="14" width="26" x="12" y="76" as="geometry" />
+        </mxCell>
+        <mxCell id="lgtx2" parent="lg" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;" value="判定分支" vertex="1">
+          <mxGeometry height="18" width="330" x="46" y="74" as="geometry" />
+        </mxCell>
+        <mxCell id="lgsw3" parent="lg" style="rounded=0;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="" vertex="1">
+          <mxGeometry height="14" width="26" x="12" y="98" as="geometry" />
+        </mxCell>
+        <mxCell id="lgtx3" parent="lg" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;" value="调用专业工程技能（第 3、5 节）" vertex="1">
+          <mxGeometry height="18" width="330" x="46" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="lgsw4" parent="lg" style="rounded=0;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="" vertex="1">
+          <mxGeometry height="14" width="26" x="12" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="lgtx4" parent="lg" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;" value="Trellis 生命周期状态出口检查" vertex="1">
+          <mxGeometry height="18" width="330" x="46" y="118" as="geometry" />
+        </mxCell>
+        <mxCell id="lgsw5" parent="lg" style="rounded=0;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="" vertex="1">
+          <mxGeometry height="14" width="26" x="12" y="142" as="geometry" />
+        </mxCell>
+        <mxCell id="lgtx5" parent="lg" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;" value="人工问责与审批门禁（第 4 节）" vertex="1">
+          <mxGeometry height="18" width="330" x="46" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="lgsw6" parent="lg" style="rounded=0;html=1;fillColor=#f5f5f5;strokeColor=#999999;" value="" vertex="1">
+          <mxGeometry height="14" width="26" x="12" y="164" as="geometry" />
+        </mxCell>
+        <mxCell id="lgtx6" parent="lg" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;" value="参考信息，非流程节点" vertex="1">
+          <mxGeometry height="18" width="330" x="46" y="162" as="geometry" />
+        </mxCell>
+        <mxCell id="lgnote" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" value="连线含义&#xa;· 黑色实线 = 正常前进&#xa;· 橙色粗线 = 阶段交接（获批进入交付 / 判定完成）&#xa;· 红色虚线 = 回退、重做或重评路径&#xa;· 灰色虚线 = 关联参考，非流程流转&#xa;&#xa;第 2 节：验证失败或出现新的阻塞性问题时，工作回退到最早可解决问题的状态；不得仅因实现已完成就标记为完成。" vertex="1">
+          <mxGeometry height="188" width="900" x="460" y="2420" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="2 Trellis 生命周期状态机" id="1">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1900" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t2" value="Trellis 生命周期状态机（第 2 节）" style="text;html=1;align=left;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#1a1a1a;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="800" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="t2n" value="非平凡工作必须在 Trellis 中记录生命周期状态，以及离开该状态所需的证据。Trellis 是项目的主要工程事实来源，拥有需求、规格/PRD、实现计划、任务、实现进度、验证状态与完成状态的权威表示。" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="1770" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="s0" value="① 澄清&#xa;Clarification" style="rounded=1;arcSize=18;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;align=center;verticalAlign=middle;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="170" width="260" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="sc0" value="出口条件&#xa;范围、验收标准、负责人与阻塞性问题已足够清晰，可在所选复杂度等级下进入规格说明或实现。" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="290" width="260" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=open;endFill=0;dashed=1;strokeColor=#999999;fontColor=#666666;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="s0" target="sc0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=11;endArrow=block;endFill=1;strokeColor=#d79b00;strokeWidth=2.5;labelBackgroundColor=#ffffff;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="s0" target="s1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s1" value="② 规格与规划&#xa;Specification&#xa;&amp; Planning" style="rounded=1;arcSize=18;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;align=center;verticalAlign=middle;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="170" width="260" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="sc1" value="出口条件&#xa;所需的规格内容、风险→验证映射、依赖关系与审批均已记录。" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="290" width="260" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=open;endFill=0;dashed=1;strokeColor=#999999;fontColor=#666666;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="s1" target="sc1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=11;endArrow=block;endFill=1;strokeColor=#d79b00;strokeWidth=2.5;labelBackgroundColor=#ffffff;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="s1" target="s2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s2" value="③ 实现&#xa;Implementation" style="rounded=1;arcSize=18;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;align=center;verticalAlign=middle;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="170" width="260" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="sc2" value="出口条件&#xa;计划内工作已完成；或任何实质性偏差已按第 17 节（方向变更）处置。" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="290" width="260" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=open;endFill=0;dashed=1;strokeColor=#999999;fontColor=#666666;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="s2" target="sc2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=11;endArrow=block;endFill=1;strokeColor=#d79b00;strokeWidth=2.5;labelBackgroundColor=#ffffff;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="s2" target="s3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s3" value="④ 验证&#xa;Verification" style="rounded=1;arcSize=18;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;align=center;verticalAlign=middle;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="930" y="170" width="260" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="sc3" value="出口条件&#xa;适用的验证已通过；或已批准的例外与残余风险已记录。" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="930" y="290" width="260" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=open;endFill=0;dashed=1;strokeColor=#999999;fontColor=#666666;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="s3" target="sc3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=11;endArrow=block;endFill=1;strokeColor=#d79b00;strokeWidth=2.5;labelBackgroundColor=#ffffff;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="s3" target="s4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s4" value="⑤ 评审&#xa;Review" style="rounded=1;arcSize=18;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;align=center;verticalAlign=middle;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="170" width="260" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="sc4" value="出口条件&#xa;所需的评审发现已解决，或由问责负责人明确接受。" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="290" width="260" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=open;endFill=0;dashed=1;strokeColor=#999999;fontColor=#666666;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="s4" target="sc4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=11;endArrow=block;endFill=1;strokeColor=#d79b00;strokeWidth=2.5;labelBackgroundColor=#ffffff;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="s4" target="s5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s5" value="⑥ 完成&#xa;Complete" style="rounded=1;arcSize=18;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;align=center;verticalAlign=middle;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="170" width="260" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="sc5" value="出口条件&#xa;第 18 节的完成标准与所需的人工验收均已满足。" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="290" width="260" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=open;endFill=0;dashed=1;strokeColor=#999999;fontColor=#666666;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="s5" target="sc5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" value="出现新的阻塞性问题 → 回退到最早可解决问题的状态" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#b85450;fontColor=#b85450;dashed=1;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="s4" target="s0">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1350" y="110" />
+              <mxPoint x="190" y="110" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e15" value="验证失败 → 回退到最早可解决问题的状态" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#b85450;fontColor=#b85450;dashed=1;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="s3" target="s1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1060" y="145" />
+              <mxPoint x="480" y="145" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="w1" value="⚠ 不得仅因实现已完成，就把工作标记为完成。&#xa;&#xa;信息冲突时的优先级：&#xa;1. 明确的项目规则优先&#xa;2. Trellis 工件是本次变更的事实来源&#xa;3. 持久项目文档提供系统上下文&#xa;4. 对话上下文只是临时工作上下文&#xa;&#xa;⚠ 绝不允许临时对话上下文静默覆盖项目的持久事实来源。" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="470" width="850" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="w2" value="系统记录与职责边界&#xa;&#xa;· Trellis 已提供所需能力时，不得另建平行的规格或任务管理工作流。&#xa;· 工程技能（Matt Pocock Skills）与工作流互补，但不得创建竞争性的规格、任务或实现工作流。&#xa;· 可额外使用其他技能做分析，但产出的决策最终必须反映到 Trellis。&#xa;· 离开「⑥ 完成」状态须满足第 18 节完成判定与第 4 节人工验收。" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="950" y="470" width="810" height="220" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="3 复杂度分级路由" id="2">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2060" pageHeight="1460" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t3" value="复杂度分级工作流（第 15 节）" style="text;html=1;align=left;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#1a1a1a;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="800" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="t3n" value="实现前完成分级。从最低适用等级开始；命中任一更高等级条件即上调；不确定时采用更高等级。状态、规格、验证、评审与完成要求分别由第 2、9、11、12、18 节约束。" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="1960" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="lv0" value="Trivial&#xa;极小" style="rounded=1;arcSize=14;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="165" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="wn0" value="适用条件&#xa;局部、已理解、可逆；不涉及契约、数据、安全、合规或跨团队影响" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="140" width="430" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="f0_0" value="理解" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="720" y="190" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="f0_1" value="实现" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="876" y="190" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="f0_0" target="f0_1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f0_2" value="验证" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1032" y="190" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="f0_1" target="f0_2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rc0" value="最小记录：变更内容 · 验收标准 · 聚焦验证结果" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="265" width="900" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=open;endFill=0;dashed=1;strokeColor=#999999;fontColor=#666666;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="lv0" target="wn0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lv1" value="Small&#xa;小型" style="rounded=1;arcSize=14;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="415" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="wn1" value="适用条件&#xa;结果明确但需局部调研、跨多文件/组件，或需聚焦自动化；单一归属边界" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="390" width="430" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="f1_0" value="理解" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="720" y="440" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="f1_1" value="调研" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="876" y="440" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="f1_0" target="f1_1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f1_2" value="实现" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1032" y="440" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="f1_1" target="f1_2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f1_3" value="测试" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1188" y="440" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="f1_2" target="f1_3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f1_4" value="评审" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1344" y="440" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="f1_3" target="f1_4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rc1" value="最小记录：范围 · 证据 · 计划 · 结果" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="515" width="900" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=open;endFill=0;dashed=1;strokeColor=#999999;fontColor=#666666;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="lv1" target="wn1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lv2" value="Medium&#xa;中型" style="rounded=1;arcSize=14;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="665" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="wn2" value="适用条件&#xa;需要澄清、跨模块/服务/团队，涉及契约/数据/权限/兼容性变更，或有实质运营风险" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="640" width="430" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="f2_0" value="澄清" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="720" y="690" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="f2_1" value="规格" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="876" y="690" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="f2_0" target="f2_1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f2_2" value="计划" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1032" y="690" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="f2_1" target="f2_2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f2_3" value="实现" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1188" y="690" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="f2_2" target="f2_3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f2_4" value="验证" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1344" y="690" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="f2_3" target="f2_4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f2_5" value="评审" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1500" y="690" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="f2_4" target="f2_5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rc2" value="最小记录：完整 Trellis 规格 · 任务 · 风险 · 验证计划" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="765" width="900" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=open;endFill=0;dashed=1;strokeColor=#999999;fontColor=#666666;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="lv2" target="wn2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lv3" value="Large / 架构级" style="rounded=1;arcSize=14;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="915" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="wn3" value="适用条件&#xa;边界、公共 API、数据架构、安全/合规、可靠性、部署拓扑或广泛的跨团队契约变更；或仍存在实质不确定性" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="890" width="430" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="f3_0" value="调研" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="720" y="940" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="f3_1" value="决策" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="876" y="940" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="f3_0" target="f3_1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f3_2" value="规格" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1032" y="940" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="f3_1" target="f3_2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f3_3" value="计划" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1188" y="940" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="f3_2" target="f3_3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f3_4" value="实现" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1344" y="940" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="f3_3" target="f3_4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f3_5" value="验证" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1500" y="940" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="f3_4" target="f3_5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f3_6" value="评审" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1656" y="940" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="f3_5" target="f3_6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f3_7" value="文档" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1812" y="940" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="f3_6" target="f3_7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rc3" value="最小记录：分阶段计划 · ADR（如适用）· 灰度/回滚/归属计划 · 完整证据" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="1015" width="900" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=open;endFill=0;dashed=1;strokeColor=#999999;fontColor=#666666;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="lv3" target="wn3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="w3" value="⚠ 不要把大型工作流强加到极小工作上。　⚠ 当不确定性或风险需要更深入的调研时，不要使用轻量工作流。&#xa;&#xa;第 9 节补充：小型工作在 Trellis 记录轻量规格（目标、范围、验收标准、相关边界或失败条件、聚焦验证计划）即可；中型与大型工作须额外定义业务目标与受影响用户/系统、可观测可测试的验收行为、错误与边界行为、受影响数据与状态迁移、外部契约、非功能需求、兼容与迁移灰度回滚策略、验收→验证映射、未决决策及其负责人。&#xa;在范围、关键成功与失败行为、受影响契约、适用的非功能需求与验证策略清晰之前，中/大型工作不得进入实现；信息缺失且可能改变实现或验收时，条目应停留在「澄清」状态。&#xa;&#xa;第 12 节：Small / Medium / Large 变更完成前均需评审；Trivial 可免独立评审，例外按第 4 节记录。" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1160" width="1960" height="200" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="4 缺陷处理双路径" id="3">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1900" pageHeight="860" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t4" value="缺陷处理双路径（第 16 节）" style="text;html=1;align=left;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#1a1a1a;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="800" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="d0" value="根因与预期行为&#xa;是否已明确且可信？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="250" width="300" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="la" value="路径 A · 调研路径（根因不明）" style="text;html=1;align=left;verticalAlign=middle;fontSize=13;fontStyle=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="400" y="95" width="340" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="a0" value="diagnosing-bugs&#xa;缺陷诊断" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;align=left;spacingLeft=12;spacingRight=8;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="400" y="130" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" value="证据&#xa;Evidence" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="576" y="130" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="a0" target="a1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" value="复现&#xa;Reproduction" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="752" y="130" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="a1" target="a2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" value="根因&#xa;Root Cause" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="928" y="130" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="a2" target="a3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a4" value="Trellis&#xa;变更定义" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1104" y="130" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="a3" target="a4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a5" value="实现&#xa;Implementation" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="130" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="a4" target="a5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a6" value="验证&#xa;Verification" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1456" y="130" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="a5" target="a6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a7" value="评审&#xa;Review" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1632" y="130" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="a6" target="a7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lb" value="路径 B · 轻量修复路径（根因与预期行为已明确）" style="text;html=1;align=left;verticalAlign=middle;fontSize=13;fontStyle=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="400" y="320" width="340" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="b0" value="确认回归&#xa;Confirm&#xa;regression" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="400" y="360" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="b1" value="复现&#xa;Reproduce" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="576" y="360" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="b0" target="b1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="b2" value="定义预期行为&#xa;与影响范围" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="752" y="360" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="b1" target="b2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="b3" value="修复&#xa;Fix" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="928" y="360" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="b2" target="b3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="b4" value="回归验证&#xa;Regression&#xa;Verification" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1104" y="360" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="b3" target="b4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="b5" value="评审&#xa;Review" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="360" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="b4" target="b5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" value="否：根因不明" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="d0" target="a0">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="370" y="305" />
+              <mxPoint x="370" y="170" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e16" value="是：已明确" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="d0" target="b0">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="190" y="400" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e17" value="升级：证据与假定的根因矛盾，或揭示更大影响范围" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#b85450;fontColor=#b85450;dashed=1;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="b2" target="a1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="827" y="270" />
+              <mxPoint x="651" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n4a" value="⚠ 在建立起足够可信的根因之前，不要实现凭猜测的修复。&#xa;&#xa;无论走哪条路径，都须在 Trellis 记录：&#xa;· 复现方式　· 根因证据　· 受影响的行为　· 修复内容　· 验证结果&#xa;&#xa;第 6 节：面对既有系统，改动前先理解当前行为。既有代码可能同时包含有意行为、历史约束、兼容要求、技术债、意外行为与过时行为。有意或必需的行为要保留；不要仅因意外行为已存在就保留它。改变既有行为前，先识别受影响的依赖、契约、数据、测试与消费方。" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="500" width="900" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="n4b" value="与其他章节的衔接&#xa;&#xa;· 路径 B 通常对应 Trivial / Small；路径 A 常对应 Medium / Large，须在 Trellis 形成变更定义后进入规格与规划阶段（第 15、9 节）。&#xa;· 验证要求按第 11 节的风险触发表选取；核心业务规则或复杂分支须覆盖正常、边界与失败行为的单元测试。&#xa;· 实现过程中若证据揭示更大影响，按第 17 节判定是否为重大变更：停止、更新工件、重评计划与验证。&#xa;· 已批准规格内明确的实现缺口或回归不构成新需求，但仍须走适用的缺陷修复工作流（第 7 节）。" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="980" y="500" width="880" height="240" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="5 职责分层·可追溯·人工问责" id="4">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t5" value="职责分层、可追溯链与人工问责（第 3、4、13、14 节）" style="text;html=1;align=left;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#1a1a1a;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="1100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ly0" value="工程工作流&#xa;Engineering Workflow — Trellis" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="440" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="lyb0" value="定义工作如何被组织与追踪。负责：&#xa;&#xa;· 规划 planning&#xa;· 规格 specification&#xa;· 任务分解 task decomposition&#xa;· 实现工作流 implementation workflow&#xa;· 验证 verification&#xa;· 进度跟踪 progress tracking&#xa;· 完成 completion" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="170" width="440" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=open;endFill=0;dashed=1;strokeColor=#999999;fontColor=#666666;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="ly0" target="lyb0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ly1" value="工程技能&#xa;Engineering Skills" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="520" y="80" width="440" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="lyb1" value="提供提升工作流质量的专业能力（Matt Pocock Skills）：&#xa;&#xa;· 代码库探索　· 需求调研　· 文档分析　· 领域建模&#xa;· 技术研究　· 缺陷诊断&#xa;· 代码设计　· 测试　· 代码评审&#xa;&#xa;⚠ 与 Trellis 互补，不得在 Trellis 已提供能力时创建竞争性的规格、任务或实现工作流" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="170" width="440" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=open;endFill=0;dashed=1;strokeColor=#999999;fontColor=#666666;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="ly1" target="lyb1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ly2" value="执行环境&#xa;Execution Environment" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="80" width="440" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="lyb2" value="AI 编码 Agent 是应用工程工作流与技能的执行环境。&#xa;&#xa;⚠ 工作流必须独立于任何特定的 Agent、IDE、CLI 或厂商。&#xa;&#xa;同一套工程原则应在 Codex、Qoder、Claude Code 或其他兼容工程 Agent 中同样成立。" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="170" width="440" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=open;endFill=0;dashed=1;strokeColor=#999999;fontColor=#666666;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="ly2" target="lyb2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tc" value="可追溯链（第 14 节）— 对有意义的变更须保持可追溯" style="text;html=1;align=left;verticalAlign=middle;fontSize=13;fontStyle=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="40" y="460" width="800" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="c0" value="需求&#xa;Requirement" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="500" width="156" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c1" value="上下文 / 证据&#xa;Context / Evidence" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="220" y="500" width="156" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="c0" target="c1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c2" value="Trellis 规格&#xa;Specification" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="400" y="500" width="156" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="c1" target="c2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" value="Trellis 计划 / 任务&#xa;Plan / Tasks" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="580" y="500" width="156" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="c2" target="c3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" value="实现&#xa;Implementation" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="760" y="500" width="156" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="c3" target="c4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c5" value="测试&#xa;Tests" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="940" y="500" width="156" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="c4" target="c5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c6" value="验证&#xa;Verification" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="500" width="156" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="c5" target="c6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c7" value="评审&#xa;Review" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="500" width="156" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=block;endFill=1;strokeColor=#4d4d4d;strokeWidth=1.5;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="c6" target="c7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nc" value="工件的确切结构可因项目而异，但意图与实现之间的关系必须保持清晰。每个重要实现决策都应可回溯到明确的需求、约束或架构决策。" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="600" width="1400" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ta" value="人工问责与审批矩阵（第 4 节）— 以下决策须有具名的问责负责人与最小记录" style="text;html=1;align=left;verticalAlign=middle;fontSize=13;fontStyle=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="40" y="690" width="1100" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="ac0" value="需求目标、范围、优先级与验收标准" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="730" width="420" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="ao0" value="产品或业务负责人" style="rounded=1;arcSize=14;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="480" y="730" width="380" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="ar0" value="Trellis 确认记录、负责人、日期与验收标准" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="730" width="560" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=open;endFill=0;dashed=1;strokeColor=#999999;fontColor=#666666;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ac0" target="ao0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ac1" value="未解决的业务规则、例外或取舍" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="792" width="420" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="ao1" value="指定的业务或领域负责人" style="rounded=1;arcSize=14;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="480" y="792" width="380" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="ar1" value="决策、理由与影响" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="792" width="560" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=open;endFill=0;dashed=1;strokeColor=#999999;fontColor=#666666;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ac1" target="ao1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ac2" value="风险接受、验证例外或残余风险" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="854" width="420" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="ao2" value="变更负责人；高风险变更另设风险负责人" style="rounded=1;arcSize=14;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="480" y="854" width="380" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="ar2" value="风险、被省略的检查、替代证据与接受人" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="854" width="560" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=open;endFill=0;dashed=1;strokeColor=#999999;fontColor=#666666;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ac2" target="ao2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ac3" value="重大架构、API、数据或安全决策" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="916" width="420" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="ao3" value="技术或架构负责人" style="rounded=1;arcSize=14;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="480" y="916" width="380" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="ar3" value="ADR 或等价决策记录、负责人与审批状态" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="916" width="560" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="e16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=open;endFill=0;dashed=1;strokeColor=#999999;fontColor=#666666;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ac3" target="ao3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ac4" value="生产发布、灰度、回滚或上线决策" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="978" width="420" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="ao4" value="发布或服务负责人" style="rounded=1;arcSize=14;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="480" y="978" width="380" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="ar4" value="审批、运营检查与回滚条件" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="978" width="560" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="e17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=open;endFill=0;dashed=1;strokeColor=#999999;fontColor=#666666;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ac4" target="ao4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ac5" value="最终完成与验收" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1040" width="420" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="ao5" value="Trellis 任务负责人；需业务验收时为业务负责人" style="rounded=1;arcSize=14;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="480" y="1040" width="380" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="ar5" value="完成决策与关联的验证证据" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="1040" width="560" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="e18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=open;endFill=0;dashed=1;strokeColor=#999999;fontColor=#666666;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ac5" target="ao5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="na" value="⚠ 高风险变更的判据：影响安全、隐私、合规、生产数据、公共契约、不可逆操作、关键用户旅程或生产可用性。&#xa;⚠ 需业务验收的判据：变更修改了用户可见的业务行为、业务规则、受监管结果、定价、承诺或面向客户的流程。&#xa;⚠ 高风险变更不得仅由其实现者自行批准。审批权仅在 Trellis 记录了代批人、代批范围与确认时间时才可委派。&#xa;⚠ 不得把 Agent 生成的分析、规格、代码、测试结果或建议当作批准、风险接受或发布授权。&#xa;&#xa;第 13 节：当决策实质影响系统边界、服务边界、API、数据模型、事件、持久化、安全、可扩展性、可靠性、部署或向后兼容时，须记录到 ADR 等持久工件中；不要把重要架构决策埋在对话历史里。可复用的系统知识（服务职责、领域词汇、契约、运营约束、不变量、兼容要求）记入相应的持久文档，并避免在 Trellis、ADR 与项目文档之间重复权威信息。" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;align=left;spacingLeft=10;spacingTop=6;spacingRight=8;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1120" width="1400" height="200" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
